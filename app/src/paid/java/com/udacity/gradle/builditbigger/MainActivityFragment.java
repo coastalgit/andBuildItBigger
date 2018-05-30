@@ -19,6 +19,9 @@ public class MainActivityFragment extends Fragment {
     @BindView(R.id.btn_telljoke)
     Button mBtnTellJoke;
 
+    @BindView(R.id.checkbox_fromcloud)
+    CheckBox mCheckBoxFromCloud;
+
     public MainActivityFragment() {
     }
 
@@ -32,8 +35,15 @@ public class MainActivityFragment extends Fragment {
         return root;
     }
 
+    private void loadJoke(){
+        if (mCheckBoxFromCloud.isChecked())
+            ((MainActivity)getActivity()).fetchJokeFromCloud();
+        else
+            ((MainActivity)getActivity()).fetchJokeFromJavaLibrary();
+    }
+
     @OnClick(R.id.btn_telljoke)
     public void btnTellJoke_onClick(Button button){
-        ((MainActivity)getActivity()).fetchJoke();
+        loadJoke();
     }
 }

@@ -8,11 +8,11 @@ public class JokeStore {
 
     public JokeStore() {
         mStore = new ArrayList<>();
-        mStore.add("Q: Joke 1" + "\n" + "A: HaHa");
-        mStore.add("Q: Joke 2" + "\n" + "A: HaHa");
-        mStore.add("Q: Joke 3" + "\n" + "A: HaHa");
-        mStore.add("Q: Joke 4" + "\n" + "A: HaHa");
-        mStore.add("Q: Joke 5" + "\n" + "A: HaHa");
+        mStore.add("Q: Java joke 1" + "\n" + "A: HaHa");
+        mStore.add("Q: Java joke 2" + "\n" + "A: HaHa");
+        mStore.add("Q: Java joke 3" + "\n" + "A: HaHa");
+        mStore.add("Q: Java joke 4" + "\n" + "A: HaHa");
+        mStore.add("Q: Java joke 5" + "\n" + "A: HaHa");
     }
 
     public String giveMeAJoke(){
