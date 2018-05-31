@@ -1,9 +1,8 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +14,16 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * A placeholder fragment containing a simple view.
  */
+@SuppressWarnings({"WeakerAccess", "unused", "ConstantConditions", "NullableProblems"})
 public class MainActivityFragment extends Fragment {
+
+    private static final String TAG = MainActivityFragment.class.getSimpleName();
 
     private AdView mAdView;
 
@@ -41,19 +42,14 @@ public class MainActivityFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
         ButterKnife.bind(this, root);
-        mAdView = (AdView) root.findViewById(R.id.adView);
+        mAdView = root.findViewById(R.id.adView);
 
         return root;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-
     @OnClick(R.id.btn_telljoke)
     public void btnTellJoke_onClick(Button button){
+        ((MainActivity)getActivity()).displayProgressBar(true);
         displayAd();
     }
 
@@ -65,20 +61,20 @@ public class MainActivityFragment extends Fragment {
     }
 
     private void displayAd(){
-        // Create an ad request. Check logcat output for the hashed device ID to
-        // get test ads on a physical device. e.g.
-        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
 
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
+
         mAdView.setAdListener(new AdListener(){
               @Override
               public void onAdLoaded() {
+                  Log.d(TAG, "onAdLoaded: ");
                   super.onAdLoaded();
                   loadJoke();
               }
           });
+
         mAdView.loadAd(adRequest);
     }
 }

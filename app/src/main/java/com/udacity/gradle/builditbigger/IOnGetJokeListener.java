@@ -5,6 +5,7 @@ package com.udacity.gradle.builditbigger;
  * Created on 24/05/2018
  */
 
+@SuppressWarnings("ALL")
 public interface IOnGetJokeListener
 {
     void onFetchJoke_OK(String joke);

@@ -1,7 +1,9 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,9 +20,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
+@SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
 public class MainActivity extends AppCompatActivity {
 
-    private static int DUMMY_DELAY = 2000;
+    private static final int DUMMY_DELAY = 2000;
 
     @BindView(R.id.progbar_loading)
     ProgressBar mProgressBar;
@@ -58,18 +61,18 @@ public class MainActivity extends AppCompatActivity {
     public void fetchJokeFromCloud(){
          //Emulate a delay for realistic progress bar
         displayProgressBar(true);
-        fetchJoke(true);
-//        new Timer().schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                fetchJoke(true);
-//            }
-//        }, DUMMY_DELAY);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                fetchJoke(true);
+            }
+        }, DUMMY_DELAY);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private void fetchJoke(boolean fromCloud){
 
-        new fetchJokeTask(this, fromCloud, new IOnGetJokeListener() {
+        new FetchJokeTask(this, fromCloud, new IOnGetJokeListener() {
             @Override
             public void onFetchJoke_OK(String joke) {
                 displayProgressBar(false);
@@ -90,8 +93,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void displayProgressBar(boolean showProgress){
-        if (mProgressBar != null)
-            mProgressBar.setVisibility(showProgress?View.VISIBLE:View.GONE);
+    public void displayProgressBar(final boolean showProgress){
+        if (mProgressBar != null) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mProgressBar.setVisibility(showProgress ? View.VISIBLE : View.GONE);
+                }
+            });
+        }
     }
+
 }

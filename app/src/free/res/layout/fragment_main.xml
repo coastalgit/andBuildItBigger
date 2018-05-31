@@ -37,7 +37,8 @@
             android:id="@+id/checkbox_fromcloud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="From Cloud"/>
+            android:text="From Cloud"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 

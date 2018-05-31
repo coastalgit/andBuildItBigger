@@ -7,9 +7,10 @@ import android.widget.TextView;
 
 public class JokeDisplayActivity extends AppCompatActivity {
 
-    public static String KEY_JOKE = "key_joke";
+    public static final String KEY_JOKE = "key_joke";
 
-    TextView mTvJoke;
+    @SuppressWarnings("FieldCanBeLocal")
+    private TextView mTvJoke;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivityFragment">
+    tools:context=".MainActivityFragment"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.android.com/apk/res/android ">
 
     <TextView
         android:id="@+id/instructions_text_view"
@@ -37,7 +39,7 @@
             android:id="@+id/checkbox_fromcloud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="From Cloud"/>
+            android:text="From Cloud" />
 
     </LinearLayout>
 
