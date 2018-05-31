@@ -206,11 +206,5 @@
     <orderEntry type="library" name="Gradle: com.google.guava:guava-jdk5:17.0@jar" level="project" />
     <orderEntry type="module" module-name="jokedisplay" />
     <orderEntry type="module" module-name="javajokelib" />
-    <orderEntry type="module" module-name="jokedisplay" />
-    <orderEntry type="module" module-name="javajokelib" />
-    <orderEntry type="module" module-name="jokedisplay" />
-    <orderEntry type="module" module-name="javajokelib" />
-    <orderEntry type="module" module-name="jokedisplay" />
-    <orderEntry type="module" module-name="javajokelib" />
   </component>
 </module>
