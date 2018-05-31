@@ -1,5 +1,8 @@
-# Build It Bigger Udacity Project
+# Build It Bigger - Udacity Project
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/2644239/40779353-8c4d48d6-64cc-11e8-9a1a-13f271eacef8.jpg?raw=true" alt="Launcher"/>
+</p>
 
 
 # Gradle for Android and Java Final Project
